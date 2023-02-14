@@ -7,7 +7,9 @@ pattern=re.compile("expression")  #it is used  to compile  the given input("the 
 p=re.compile("green",flags=re.I)
 #  which allows patterns of  upper and lower cases combined
 
-#matching 
+#______________________________
+#matching  functions 
+  
   #match(): checks only at the beginnig(by default)
   #match("  ",pos,endpos)
 k=p.match("green lantern")  #match object is returned if a match is found
@@ -43,3 +45,24 @@ finditer=pattern.finditer(" red roses are red  ")
 for i in finditer: #print all the substrings matching the input
   print(i)
 
+#we can give inputs like this also for a single case searching
+
+i= re.findall("cat","cat women is not a cat") #search for cat in the  input string
+print(i)
+
+
+#__________________
+
+#!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#suppose in this case
+text="this cake costs about $100"
+#if we want to search $100
+amount=re.compile("$100")
+k=amount.search(text)
+print(k)# it will return none
+#since $ is a metacharacter and has a special meaning in regex engine
+#inorder to treat it as a literal use  \  
+amount=re.compile("\$100")
+k=amount.search(text)
+print(k)
+#now it works

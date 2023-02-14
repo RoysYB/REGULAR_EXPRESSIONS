@@ -66,3 +66,5 @@ amount=re.compile("\$100")
 k=amount.search(text)
 print(k)
 #now it works
+# there are 12  metacharacters which are
+#  \,^,$,.,|,?,*,+,(,),[,{

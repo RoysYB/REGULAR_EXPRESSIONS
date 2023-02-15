@@ -68,3 +68,33 @@ print(k)
 #now it works
 # there are 12  metacharacters which are
 #  \,^,$,.,|,?,*,+,(,),[,{
+
+
+
+#special case
+#\ is also a metacharacter so use \\ 
+#in case of \
+txt="""C:\Windows\System32"""
+pattern=re.compile("C:\Windows\System32")
+print(pattern.search(txt))#this will be none since \ is a metacharacter
+#so
+pattern=re.compile("C:\\Windows\\System32")
+print(pattern.search(txt))#but this is also giving none
+#it happens because of python interpreter since it also use \ for escaping  ( like  \n ) 
+print("this is \\ me")#here the \\ is used as an escape sequence by the interpreter
+#a way to perform would be
+pattern=re.compile("C:\\\\Windows\\\\System32")
+print(pattern.search(txt))
+#so we have to use \\\\ for a single \
+#another way could be to use  raw string
+print(r"this is \n me")#the string is treated as raw
+#so another way would be 
+pattern=re.compile(r"C:\\Windows\\System32")
+print(pattern.search(txt))
+#we  can use escape() to escape metacharacters
+print(re.escape("C:\Windows"))
+# it outputs the escaped string  as C:\\windows
+#so we can use as
+pattern=re.compile(re.escape("C:\Windows\System32"))
+print(pattern.search(txt))
+#escape will escape all  metacharacters  so use if you dont need any metacharacter usecase

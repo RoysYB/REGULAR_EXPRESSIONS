@@ -98,3 +98,10 @@ print(re.escape("C:\Windows"))
 pattern=re.compile(re.escape("C:\Windows\System32"))
 print(pattern.search(txt))
 #escape will escape all  metacharacters  so use if you dont need any metacharacter usecase
+
+
+#character classes
+#it allows us to define if a character that will match if any of the defined characters on the set is present
+#ie for example  if  we have to find two words  beans and jeans where only first word only has a change so we can use a characer classes like
+pattern=re.compile("[jb]eans")#here we have [] which are metacharacters for characters , so whatever characters are inside the brackets  any one from them could be at that place
+print(pattern.findall("there was beans found in his jeans"))#so we used a single pattern for  two words

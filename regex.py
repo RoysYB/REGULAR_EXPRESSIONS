@@ -105,3 +105,19 @@ print(pattern.search(txt))
 #ie for example  if  we have to find two words  beans and jeans where only first word only has a change so we can use a characer classes like
 pattern=re.compile("[jb]eans")#here we have [] which are metacharacters for characters , so whatever characters are inside the brackets  any one from them could be at that place
 print(pattern.findall("there was beans found in his jeans"))#so we used a single pattern for  two words
+
+
+
+#character set range
+#as the name says it describes a range
+# supppose  [0123456789]  we can define it as [0-9]
+#so we can use  , [A-Z],[a-z0-9A-Z]
+pattern=re.compile("[A-Z][A-Z][A-Z][A-Z][A-Z][0-9][0-9]")
+print(pattern.findall("    MESSI11     "))
+
+
+# ^ symbol
+#so in a character set whatever characters are after ^ none of  those characters wont be  taken as a pattern
+
+pattern=re.compile("[^b]at")#so after ^ b is there so that whatever character except b in that place will be considered
+print(pattern.findall("we played with a bat and sat ")) #so bat wont be taken

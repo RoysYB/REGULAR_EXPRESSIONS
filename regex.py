@@ -121,3 +121,19 @@ print(pattern.findall("    MESSI11     "))
 
 pattern=re.compile("[^b]at")#so after ^ b is there so that whatever character except b in that place will be considered
 print(pattern.findall("we played with a bat and sat ")) #so bat wont be taken
+
+
+#predefined character classes
+""" 
+these elements are predefined so that we can use it instead of its equivalent symbols
+
+.     this will match any character except newline
+\d    matches any digit                      equivalent to[0-9]
+\D    any non digit                          equivalent to[^0-9] 
+\s    whitespaces                            equivalent to[\t\n\r\f\v] 
+\S    any non whitespace                     equivalent to[^\t\n\r\f\v]
+\w    any alphanumeric characters            equivalent to[a-zA_Z0-9]
+\W    any non alphanumeric characters        equivalent to[^a-zA_Z0-9] 
+"""
+pattern=re.compile("b\w\w")# here we used instead of bat
+print(pattern.findall("we played with a bat and sat ")) 
